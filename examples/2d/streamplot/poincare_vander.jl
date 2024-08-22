@@ -1,4 +1,4 @@
-# ## streamplot: Poincare and Van der Paul
+# ## streamplot: Poincare and Van der Pol
 
 # ![](poincare_vander.png)
 
@@ -6,10 +6,10 @@ using CairoMakie
 CairoMakie.activate!(type = "png") #hide
 
 nonStablePoincare(x, y) = Point2f(x * (x^2 + y^2 - 1) - y * (x^2 + y^2 + 1), y * (x^2 + y^2 - 1) + x * (x^2 + y^2 + 1))
-stableVanDerPaul(x, y) = Point2f(y, (1 - x^2) * y - x)
+stableVanDerPol(x, y) = Point2f(y, (1 - x^2) * y - x)
 semiStable(x, y) = Point2f(-y + x * (-1 + x^2 + y^2)^2, x + y * (-1 + x^2 + y^2)^2)
 titles = ["non-stable", "stable", "semi-stable"]
-functions = [nonStablePoincare, stableVanDerPaul, semiStable]
+functions = [nonStablePoincare, stableVanDerPol, semiStable]
 cmaps = [:plasma, :viridis, :gnuplot2]
 
 fig = Figure(size = (1800, 600), fontsize = 24)
